@@ -106,7 +106,7 @@ jupyter notebook
 
 ------------------------------------------------------------------------
 
-## 👤 Author
+## 👤 Author/s
 
 Yousef Hazem, Shehabeldeen Yousef
 
