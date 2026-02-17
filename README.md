@@ -3,11 +3,11 @@
 ## 📌 Overview
 
 This project implements a Neural Network model using Python.\
-It demonstrates core machine learning concepts including model building,
+It demonstrates core machine learning concepts, including model building,
 training, and evaluation.
 
 The project includes: - `app.py` -- Main application script -
-`notebook.ipynb` -- Jupyter Notebook for experimentation and
+`training.ipynb` -- Jupyter Notebook for experimentation and
 visualization
 
 ------------------------------------------------------------------------
@@ -37,11 +37,11 @@ visualization
 
     N.N project code/
     │── app.py
-    │── notebook.ipynb
+    │── training.ipynb
     │── README.md
 
 -   **app.py** -- Contains the main neural network implementation\
--   **notebook.ipynb** -- Used for testing, visualization, and
+-   **training.ipynb** -- Used for testing, visualization, and
     experiments
 
 ------------------------------------------------------------------------
@@ -74,7 +74,7 @@ python app.py
 To open the notebook:
 
 ``` bash
-jupyter notebook
+jupyter training
 ```
 
 ------------------------------------------------------------------------
