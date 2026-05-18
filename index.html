@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Customer frequency prediction app powered by a lightweight neural network inference flow."
+    />
+    <title>Customer Frequency Prediction</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#predictor">Skip to predictor</a>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Customer Frequency Prediction home">
+        <span class="brand-mark">MLP</span>
+        <span>Customer Frequency</span>
+      </a>
+      <nav aria-label="Project links">
+        <a href="#predictor">Predict</a>
+        <a href="#model">Model</a>
+        <a href="https://github.com/youssefhazem3-dot/MLP-prediction-model" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="app-intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Neural customer intelligence</p>
+          <h1 id="page-title">Predict repeat purchase frequency.</h1>
+          <p class="intro-copy">
+            A compact MLP estimates whether a customer is likely to become frequent from recency,
+            monetary value, and average quantity.
+          </p>
+        </div>
+        <div class="status-chip" aria-label="Deployment status">
+          <span class="pulse"></span>
+          Vercel-ready
+        </div>
+      </section>
+
+      <section class="predictor-grid" id="predictor">
+        <form class="surface input-surface" id="prediction-form">
+          <div class="surface-header">
+            <div>
+              <p class="eyebrow">Input signal</p>
+              <h2>Customer features</h2>
+            </div>
+            <button class="ghost-button" type="reset">Reset</button>
+          </div>
+
+          <div class="field-group">
+            <label for="recency">Recency</label>
+            <div class="input-line">
+              <input id="recency" name="recency" type="number" min="0" step="1" value="30" inputmode="numeric" />
+              <span>days</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="monetary">Monetary value</label>
+            <div class="input-line">
+              <input id="monetary" name="monetary" type="number" min="0" step="0.01" value="450" inputmode="decimal" />
+              <span>total spend</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="avgQuantity">Average quantity</label>
+            <div class="input-line">
+              <input id="avgQuantity" name="avgQuantity" type="number" min="0" step="0.01" value="6" inputmode="decimal" />
+              <span>per order</span>
+            </div>
+          </div>
+
+          <div class="example-row" aria-label="Example customers">
+            <button type="button" data-example="high">High value</button>
+            <button type="button" data-example="steady">Steady</button>
+            <button type="button" data-example="cold">No spend</button>
+          </div>
+
+          <button class="primary-button" type="submit">Predict frequency</button>
+        </form>
+
+        <section class="surface result-surface" aria-labelledby="result-title">
+          <div class="surface-header">
+            <div>
+              <p class="eyebrow">Prediction result</p>
+              <h2 id="result-title">Frequency likelihood</h2>
+            </div>
+            <span class="model-badge">Binary classifier</span>
+          </div>
+
+          <div class="probability-ring" id="probability-ring" aria-hidden="true">
+            <span id="probability-value">0%</span>
+          </div>
+
+          <div class="result-copy" aria-live="polite">
+            <p class="prediction-label" id="prediction-label">Calculating...</p>
+            <p id="prediction-detail">Enter customer features to estimate purchase frequency.</p>
+          </div>
+
+          <div class="confidence-track" aria-label="Model confidence">
+            <div>
+              <span>Confidence</span>
+              <strong id="confidence-value">0%</strong>
+            </div>
+            <div class="track"><span id="confidence-bar"></span></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="model-section" id="model" aria-labelledby="model-title">
+        <div class="section-heading">
+          <p class="eyebrow">Model flow</p>
+          <h2 id="model-title">Three inputs, two hidden layers, one decision.</h2>
+        </div>
+
+        <div class="model-grid">
+          <article class="signal-card">
+            <span>01</span>
+            <h3>Input layer</h3>
+            <p>Recency, monetary value, and average quantity are passed as the customer signal.</p>
+          </article>
+          <article class="signal-card">
+            <span>02</span>
+            <h3>Dense layers</h3>
+            <p>Two ReLU layers transform the customer profile into a purchase-frequency score.</p>
+          </article>
+          <article class="signal-card">
+            <span>03</span>
+            <h3>Sigmoid output</h3>
+            <p>A probability above 50% is classified as a likely frequent customer.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

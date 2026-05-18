@@ -1,117 +1,35 @@
-# MLP-prediction-model
+# MLP Prediction Model
 
-## 📌 Overview
+A Vercel-ready customer frequency prediction app.
 
-This project implements a Neural Network model using Python.\
-It demonstrates core machine learning concepts, including model building,
-training, and evaluation.
+The original Streamlit interface has been converted into a static web app that runs the trained Keras MLP directly in the browser. The model weights are extracted from `model.h5` into `model-weights.js`, and the JavaScript forward pass mirrors the saved network:
 
-The project includes: - `app.py` -- Main application script -
-`training.ipynb` -- Jupyter Notebook for experimentation and
-visualization
+- Input: `Recency`, `Monetary`, `AvgQuantity`
+- Hidden layer: Dense 64 with ReLU
+- Hidden layer: Dense 32 with ReLU
+- Output layer: Dense 1 with sigmoid
+- Threshold: `0.5`
 
-------------------------------------------------------------------------
+## Project Files
 
-## 🚀 Features
+- `index.html` - App shell and prediction UI
+- `styles.css` - Responsive Vercel app styling
+- `app.js` - Lightweight neural-network inference
+- `model-weights.js` - Extracted trained weights from the Keras `.h5` model
+- `vercel.json` - Static hosting configuration
 
--   Implementation of a Neural Network model
--   Training and evaluation workflow
--   Data preprocessing (if applicable)
--   Interactive experimentation via Jupyter Notebook
--   Modular Python structure
+## Run Locally
 
-------------------------------------------------------------------------
-
-## 🛠️ Technologies Used
-
--   Python 3
--   NumPy
--   TensorFlow
--   PyTorch
--   scikit-learn
--   Jupyter Notebook
-
-------------------------------------------------------------------------
-
-## 📂 Project Structure
-
-    N.N project code/
-    │── app.py
-    │── training.ipynb
-    │── README.md
-
--   **app.py** -- Contains the main neural network implementation\
--   **training.ipynb** -- Used for testing, visualization, and
-    experiments
-
-------------------------------------------------------------------------
-
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the repository
-
-``` bash
-git clone https://github.com/youssefhazem3-dot/MLP-prediction-model
-cd MLP-prediction-model
+```bash
+python -m http.server 4173
 ```
 
-### 2️⃣ Install dependencies
+Then open:
 
-``` bash
-pip install -r requirements.txt
+```text
+http://localhost:4173
 ```
 
-(If no requirements file exists, manually install required libraries.)
+## Deploy
 
-### 3️⃣ Run the project
-
-To run the Python script:
-
-``` bash
-python app.py
-```
-
-To open the notebook:
-
-``` bash
-jupyter training
-```
-
-------------------------------------------------------------------------
-
-## ▶️ Usage
-
-1.  Prepare your dataset (if required).
-2.  Configure model parameters inside `app.py` or the notebook.
-3.  Run training.
-4.  Evaluate model performance.
-
-------------------------------------------------------------------------
-
-## 🎯 Learning Objectives
-
--   Understand Neural Network architecture
--   Implement forward and backward propagation
--   Train and evaluate ML models
--   Apply machine learning concepts practically
-
-------------------------------------------------------------------------
-
-## 🔮 Future Improvements
-
--   Add hyperparameter tuning
--   Improve model accuracy
--   Add visualization of training metrics
--   Create a GUI or web interface
-
-------------------------------------------------------------------------
-
-## 👤 Author/s
-
-Yousef Hazem, Shehabeldeen Yousef
-
-------------------------------------------------------------------------
-
-## 📄 License
-
-This project is intended for educational purposes.
+This project can be deployed as a static Vercel site from the repository root.

@@ -1,0 +1,9 @@
+{
+  "name": "mlp-prediction-model",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python -m http.server 4173"
+  }
+}
